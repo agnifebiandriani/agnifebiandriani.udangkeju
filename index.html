@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Udanglicious — A Little Bite of Happiness</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:#CD8B09; --amber:#E9A413; --yellow:#FCC724;
+      --lemon:#FEF36C; --pale:#FDFEAD; --cream:#FDFBD5;
+      --ink:#49320D; --muted:#8B744C; --white:#FFFEF5;
+      --shadow:0 16px 40px rgba(123,79,0,.12);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%}
+    .topline{height:7px;background:linear-gradient(90deg,var(--gold),var(--amber),var(--yellow),var(--lemon))}
+    header{position:sticky;top:0;z-index:20;background:rgba(253,251,213,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(205,139,9,.15)}
+    .nav-wrap{max-width:1160px;margin:auto;padding:15px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;letter-spacing:-.7px}
+    .brand span{color:var(--gold)}
+    nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+    nav a{font-size:.83rem;font-weight:600;color:#715522;transition:.2s}
+    nav a:hover{color:var(--gold)}
+    .nav-order{background:var(--gold);color:white;padding:9px 16px;border-radius:30px}
+    .nav-order:hover{background:#A96E00;color:white}
+    section{scroll-margin-top:90px}
+    .hero{min-height:590px;display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:50px;max-width:1160px;margin:auto;padding:75px 5% 85px}
+    .eyebrow{color:var(--gold);font-size:.76rem;text-transform:uppercase;letter-spacing:3px;font-weight:700}
+    h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.15}
+    h1{font-size:clamp(3rem,6vw,5.1rem);margin:17px 0 20px;letter-spacing:-2px}
+    h1 em{color:var(--gold);font-style:normal}
+    .hero-copy{max-width:490px;color:var(--muted);font-size:1rem}
+    .actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;justify-content:center;align-items:center;padding:13px 22px;border-radius:30px;font-size:.88rem;font-weight:700;transition:.25s}
+    .btn-primary{background:var(--gold);color:white;box-shadow:0 8px 20px rgba(205,139,9,.2)}
+    .btn-primary:hover{transform:translateY(-3px);background:#AA7000}
+    .btn-outline{border:1px solid #D8B45D;color:var(--ink)}
+    .btn-outline:hover{background:var(--pale)}
+    .hero-visual{position:relative;padding:18px}
+    .hero-visual:before{content:"";position:absolute;inset:0 7% 5%;background:var(--lemon);border-radius:48% 48% 25px 25px;transform:rotate(4deg)}
+    .hero-visual img{position:relative;height:440px;object-fit:cover;border-radius:48% 48% 22px 22px;box-shadow:var(--shadow)}
+    .floating-note{position:absolute;z-index:2;left:-5px;bottom:35px;background:var(--white);border-radius:15px;padding:13px 18px;box-shadow:var(--shadow);font-size:.78rem}
+    .floating-note strong{display:block;color:var(--gold);font-size:1rem}
+    .intro-strip{background:linear-gradient(100deg,var(--gold),var(--amber),var(--yellow));color:#FFFCED;padding:18px 5%;text-align:center;font-size:.82rem;letter-spacing:1.5px}
+    .section{max-width:1160px;margin:auto;padding:88px 5%}
+    .section-head{text-align:center;max-width:620px;margin:0 auto 42px}
+    .section-head h2{font-size:clamp(2.2rem,4vw,3.25rem);margin:10px 0 13px}
+    .section-head p{color:var(--muted);font-size:.93rem}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}
+    .about-photo{border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+    .about-photo img{height:390px;object-fit:cover}
+    .about-text h2{font-size:2.7rem;margin:10px 0 18px}
+    .about-text p{color:var(--muted);margin-bottom:14px}
+    .mini-points{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .mini-points span{background:#FFF8C5;border:1px solid #F2DF83;border-radius:30px;padding:8px 13px;font-size:.78rem;font-weight:600}
+    .products-section,.contact-section{background:#FFF9D9}
+    .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .product-card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(123,79,0,.08);transition:.25s}
+    .product-card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+    .product-card img{height:270px;object-fit:cover}
+    .product-info{padding:21px}
+    .product-tag{display:inline-block;background:#FFF1A8;color:#946300;padding:5px 10px;border-radius:20px;font-size:.68rem;font-weight:700;letter-spacing:.5px}
+    .product-info h3{font-size:1.35rem;margin:12px 0 8px}
+    .product-info p{color:var(--muted);font-size:.84rem;min-height:54px}
+    .product-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:17px}
+    .price{color:var(--gold);font-weight:700;font-size:.9rem}
+    .small-link{font-size:.78rem;font-weight:700;color:var(--gold);border-bottom:1px solid var(--gold)}
+    .order-panel{background:linear-gradient(120deg,#F8C52C,#E9A413);border-radius:28px;padding:48px;display:grid;grid-template-columns:1fr auto;gap:25px;align-items:center;color:#FFFCED;box-shadow:var(--shadow)}
+    .order-panel h2{font-size:2.45rem;margin:8px 0 12px}
+    .order-panel p{max-width:570px;color:#FFF8DC;font-size:.9rem}
+    .order-panel .btn{background:var(--white);color:#8D5B00;white-space:nowrap}
+    .branch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .branch-card{padding:27px;border:1px solid #EAD58A;border-radius:18px;background:rgba(255,255,255,.55)}
+    .branch-card .number{color:var(--gold);font-family:'Playfair Display';font-size:2rem}
+    .branch-card h3{font-size:1.35rem;margin:8px 0}
+    .branch-card p{color:var(--muted);font-size:.88rem}
+    .branch-card small{display:inline-block;margin-top:14px;color:#986800;background:#FFF2B5;border-radius:20px;padding:5px 11px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+    .contact-copy h2{font-size:2.7rem;margin:10px 0 15px}
+    .contact-copy p{color:var(--muted);max-width:450px}
+    .contact-list{display:grid;gap:13px}
+    .contact-item{display:flex;gap:15px;align-items:center;padding:17px;background:var(--white);border-radius:15px}
+    .contact-icon{width:42px;height:42px;display:grid;place-items:center;background:#FFF0A6;border-radius:50%;font-size:1.15rem}
+    .contact-item small{display:block;color:var(--muted);font-size:.72rem}
+    .contact-item strong{font-size:.9rem;overflow-wrap:anywhere}
+    .sources{background:#FFFEF0;border:1px solid #EEE0A0;padding:24px;border-radius:18px;max-width:760px;margin:auto}
+    .sources p,.sources li{color:var(--muted);font-size:.85rem}
+    .sources ul{padding-left:20px;margin-top:10px}
+    footer{background:#49320D;color:#FFF6D3;padding:35px 5%;text-align:center}
+    footer .brand{font-size:1.7rem}
+    footer p{color:#E9D9A8;font-size:.78rem;margin-top:8px}
+    .back-top{position:fixed;right:20px;bottom:20px;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--gold);color:white;box-shadow:var(--shadow);z-index:10}
+    @media(max-width:850px){
+      nav{gap:12px;justify-content:center}nav a{font-size:.76rem}
+      .nav-wrap{flex-direction:column}
+      .hero{grid-template-columns:1fr;padding-top:55px}
+      .hero-visual{max-width:570px;width:100%;margin:auto}
+      .hero-visual img{height:390px}
+      .about-grid,.contact-grid{grid-template-columns:1fr}
+      .product-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:560px){
+      .hero{gap:25px}.hero-visual img{height:330px}
+      .section{padding:65px 6%}
+      .product-grid,.branch-grid{grid-template-columns:1fr}
+      .product-card img{height:250px}
+      .order-panel{grid-template-columns:1fr;padding:30px 25px}
+      .order-panel h2{font-size:2rem}
+      .about-photo img{height:290px}
+      nav{gap:10px 15px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="nav-wrap">
+      <a class="brand" href="#home">udang<span>licious</span>.</a>
+      <nav aria-label="Navigasi utama">
+        <a href="#home">Home</a>
+        <a href="#produk">Produk</a>
+        <a href="#cabang">Cabang</a>
+        <a href="#kontak">Kontak</a>
+        <a href="#sumber">Sumber</a>
+        <a class="nav-order" href="#pemesanan">Pesan sekarang</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <p class="eyebrow">A little bite of happiness</p>
+        <h1>Good food,<br><em>good mood.</em></h1>
+        <p class="hero-copy">Kenalan dengan Udanglicious — camilan udang keju dengan balutan renyah dan isian yang lembut. Teman santai yang selalu punya cara untuk bikin harimu lebih seru.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#produk">Jelajahi produk ↗</a>
+          <a class="btn btn-outline" href="#tentang">Tentang kami</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="gambar5.jpeg" alt="Udang keju goreng dengan saus">
+        <div class="floating-note">Made for your snack time<strong>Crunchy & cheesy!</strong></div>
+      </div>
+    </section>
+
+    <div class="intro-strip">FRESHLY PREPARED · DELICIOUSLY MADE · ALWAYS MADE WITH CARE</div>
+
+    <section class="section" id="tentang">
+      <div class="about-grid">
+        <div class="about-photo"><img src="gambar4.jpeg" alt="Udang keju homemade dengan saus"></div>
+        <div class="about-text">
+          <p class="eyebrow">A little about us</p>
+          <h2>Simple snack,<br>special moment.</h2>
+          <p>Udanglicious hadir untuk menemani waktu ngemil kamu lewat sajian udang keju yang praktis dan menggugah selera.</p>
+          <p>Mulai dari camilan di rumah sampai teman berkumpul bersama orang terdekat, setiap gigitan dibuat untuk jadi bagian kecil dari momen menyenangkan.</p>
+          <div class="mini-points"><span>✦ Savory taste</span><span>✦ Cheesy inside</span><span>✦ Snack time favorite</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-section" id="produk">
+      <div class="section">
+        <div class="section-head">
+          <p class="eyebrow">Our selection</p>
+          <h2>Meet the delicious bites.</h2>
+          <p>Pilih camilan favoritmu dan nikmati momen ngemil yang lebih menyenangkan.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <img src="gambar1.jpeg" alt="Udang keju dalam kemasan">
+            <div class="product-info">
+              <span class="product-tag">FROZEN</span>
+              <h3>Udang Keju Frozen</h3>
+              <p>Udang keju dalam kemasan, siap disimpan dan disajikan sesuai kebutuhan.</p>
+              <div class="product-bottom"><span class="price">Harga: hubungi kami</span><a class="small-link" href="#pemesanan">Order ↗</a></div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="gambar2.jpeg" alt="Udang keju homemade dengan saus">
+            <div class="product-info">
+              <span class="product-tag">HOMEMADE</span>
+              <h3>Udang Keju Homemade</h3>
+              <p>Udang keju siap santap dengan lapisan renyah dan saus pendamping.</p>
+              <div class="product-bottom"><span class="price">Harga: hubungi kami</span><a class="small-link" href="#pemesanan">Order ↗</a></div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="gambar3.jpeg" alt="Sajian udang keju di atas piring">
+            <div class="product-info">
+              <span class="product-tag">CUSTOMER FAVORITE</span>
+              <h3>Udang Keju Platter</h3>
+              <p>Sajian udang keju untuk menemani waktu santai dan momen bersama.</p>
+              <div class="product-bottom"><span class="price">Harga: hubungi kami</span><a class="small-link" href="#pemesanan">Order ↗</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pemesanan">
+      <div class="order-panel">
+        <div>
+          <p class="eyebrow" style="color:#FFF8D5">Your snack is waiting</p>
+          <h2>Ready to take a bite?</h2>
+          <p>Yuk, pesan Udanglicious untuk menemani harimu. Klik tombol di samping untuk membuka halaman pemesanan.</p>
+        </div>
+        <!-- Ganti tanda # dengan link Google Form atau WhatsApp pemesanan -->
+        <a class="btn" href="#" target="_blank" rel="noopener">Link pemesanan ↗</a>
+      </div>
+    </section>
+
+    <section class="section" id="cabang">
+      <div class="section-head">
+        <p class="eyebrow">Find us</p><h2>Our branches.</h2>
+        <p>Kunjungi atau hubungi cabang Udanglicious untuk informasi ketersediaan produk.</p>
+      </div>
+      <div class="branch-grid">
+        <article class="branch-card"><div class="number">01</div><h3>Udanglicious — Bandung</h3><p>Alamat: Jl.putri hijau.</p><small>Informasi lokasi</small></article>
+        <article class="branch-card"><div class="number">02</div><h3>Udanglicious — bali</h3><p>Alamat: Jl.Denpasar.</p><small>Informasi lokasi</small></article>
+      </div>
+    </section>
+
+    <section class="contact-section" id="kontak">
+      <div class="section">
+        <div class="contact-grid">
+          <div class="contact-copy">
+            <p class="eyebrow">Say hello</p><h2>Let's get<br>in touch.</h2>
+            <p>Punya pertanyaan tentang produk atau ingin melakukan pemesanan? Hubungi kami melalui kontak berikut.</p>
+          </div>
+          <div class="contact-list">
+            <div class="contact-item"><div class="contact-icon">✉</div><div><small>Email</small><strong>udangkeju@gmail</strong></div></div>
+            <div class="contact-item"><div class="contact-icon">☏</div><div><small>WhatsApp</small><strong>23334564322</strong></div></div>
+            <div class="contact-item"><div class="contact-icon">◎</div><div><small>Instagram</small><strong>@udangkeju</strong></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sumber">
+      <div class="section-head">
+        <p class="eyebrow">Credits</p><h2>Sources & information.</h2>
+        <p>Informasi dan dokumentasi yang digunakan dalam website Udanglicious.</p>
+      </div>
+      <div class="sources">
+        <p><strong>Sumber foto:</strong></p>
+        <ul>
+          <li>Foto kemasan Udang Keju Frozen — gambar yang diberikan pemilik website.</li>
+          <li>Foto Udang Keju Homemade — gambar yang diberikan pemilik website.</li>
+          <li>Foto sajian Udang Keju — gambar yang diberikan pemilik website.</li>
+        </ul>
+        <p style="margin-top:14px"><strong>Palet warna:</strong> #CD8B09, #E9A413, #FCC724, #FEF36C, #FDFEAD, dan #FDFBD5.</p>
+        <p style="margin-top:10px">Catatan: lengkapi alamat cabang, kontak, harga produk, dan tautan pemesanan sebelum website dipublikasikan.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#home">udang<span style="color:#FCC724">licious</span>.</a>
+    <p>A little bite of happiness, made for your day.</p>
+    <p>© 2026 Udanglicious. All rights reserved.</p>
+  </footer>
+  <a class="back-top" href="#home" aria-label="Kembali ke atas">↑</a>
+</body>
+</html>
